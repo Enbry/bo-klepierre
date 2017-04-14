@@ -40,7 +40,21 @@ app.get('/rasp', function(req, res){
 
   var hostName = os.hostname();
   var postHostName;
-  if (req.method == 'POST') {
+
+  var server = http.createServer ( function(request,response){
+
+  response.writeHead(200,{"Content-Type":"application/json"});
+  if(request.method == “POST”)
+      {
+          response.end("received POST request.");
+      }
+  else
+      {
+          response.end("Undefined request .");
+      }
+});
+
+  /*if (req.method == 'POST') {
     var body = '';
 
     req.on('data', function (data) {
@@ -57,7 +71,7 @@ app.get('/rasp', function(req, res){
       // use post['blah'], etc.
       console.log(post);
     });
-  }
+  }*/
   var clientIp = req.ip;
   //  var testip = ip.address();
   console.log(clientIp);
