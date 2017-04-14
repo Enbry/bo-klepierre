@@ -55,6 +55,7 @@ app.get('/', function(req, res){
             var post = qs.parse(body);
             // use post['blah'], etc.
             console.log(post.hostName);
+            var postHostName = post.hostName;
         });
     }
   var clientIp = req.ip;
@@ -63,7 +64,8 @@ app.get('/', function(req, res){
   res.render('index', {
     title: 'Accueil',
     rasp: hostName,
-    raspIp: clientIp
+    raspIp: clientIp,
+    log: postHostName
   });
 });
 
