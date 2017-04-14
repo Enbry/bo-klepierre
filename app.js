@@ -55,8 +55,7 @@ app.get('/rasp', function(req, res){
     req.on('end', function () {
       var post = qs.parse(body);
       // use post['blah'], etc.
-      console.log(post.hostName);
-      var postHostName = post.hostName;
+      console.log(post);
     });
   }
   var clientIp = req.ip;
