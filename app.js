@@ -7,8 +7,8 @@ var express = require('express')
 , exec = require('child_process').exec
 , os = require('os')
 , get_ip = require('ipware')().get_ip
-, requestIp = require('request-ip')
 , qs = require('querystring')
+, requestIp = require('request-ip')
 , ip = require("ip");
 
 var app = express();
@@ -38,32 +38,20 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-  var hostName = os.hostname();
-  if (req.method == 'POST') {
-        var body = '';
+  var test = os.hostname();
+  console.log(test);
 
-        req.on('data', function (data) {
-            body += data;
+  var stdout;
+  var test_ip = exec('wget -qO- ifconfig.me/ip').stdout.pipe(process.stdout);
 
-            // Too much POST data, kill the connection!
-            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-            if (body.length > 1e6)
-                req.connection.destroy();
-        });
-
-        req.on('end', function () {
-            var post = qs.parse(body);
-            // use post['blah'], etc.
-            console.log(post.hostName);
-        });
-    }
-//  var testip = ip.address();
+  var clientIp = req.ip;
+  //  var testip = ip.address();
   console.log(clientIp);
-    res.render('index', {
-      title: 'Accueil',
-      rasp: test,
-      raspIp: clientIp
-    });
+  res.render('index', {
+    title: 'Accueil',
+    rasp: test,
+    raspIp: clientIp
+  });
 });
 
 app.get('/playlist', function(req, res){
