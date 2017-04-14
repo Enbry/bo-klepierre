@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1= title
+    #playlists
+        - each playlist in playlists
+          div.playlist
+            div.created_at= playlist.created_at
+            div.title= playlist.title 
+            div.description= playlist.description
+            div.date= playlist.date
+                form( method="post", action="/playlist/:id/delete") 
+                    input(name="_id", type="hidden", value=playlist._id.toHexString()) 
+                    input(id="delete", value="X", type="submit")
+                form( method="get", action="/playlist/:id/edit") 
+                    input(name="_id", type="hidden", value=playlist._id.toHexString()) 
+                    input(id="edit", value="Edit", type="submit")
+        a(href="/playlist/new")!= "Add New Playlist"

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1= title
+    div.newplaylist
+        form( method="post")
+            div
+                div
+                    span.label Title :
+                    input(type="text", name="title", id="editPlaylistTitle")
+                div
+                    span.label Name :
+                    input(type="text", name="description", id="editPlaylistName")
+                div
+                    span.label Date :
+                    input(type="date", name="date", id="editPlaylistDate")
+                div#editPlaylistSubmit
+                    input(type="submit", value="Enregistrer")
+        a(href="/")!= "Back to Playlist List"
