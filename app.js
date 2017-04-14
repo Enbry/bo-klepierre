@@ -44,7 +44,7 @@ app.get('/rasp', function(req, res){
   var server = http.createServer ( function(request,response){
 
   response.writeHead(200,{"Content-Type":"application/json"});
-  if(request.method == “POST”)
+  if(request.method == "POST")
       {
           response.end("received POST request.");
       }
