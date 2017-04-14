@@ -72,7 +72,7 @@ app.get('/rasp', function(req, res){
   });
 });
 
-app.post('/rasp',function(req,res){
+app.post('/rasp', function(req,res){
   console.log(req.body);
   res.send("received post");
 });
