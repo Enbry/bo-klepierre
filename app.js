@@ -38,8 +38,8 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/rasp', function(req, res){
 
-/*  var hostName = os.hostname();
-  var postHostName;*/
+ var hostName = os.hostname();
+  var postHostName;
 
 
 
@@ -72,10 +72,10 @@ app.get('/rasp', function(req, res){
   });
 });
 
-/*app.post('/rasp', function(req,res){
+app.post('/rasp', function(req,res){
   console.log(req.body);
   //res.send("received post");
-});*/
+});
 
 app.get('/playlist', function(req, res){
 
