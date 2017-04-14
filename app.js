@@ -13,7 +13,6 @@ var express = require('express')
 , get_ip = require('ipware')().get_ip
 , requestIp = require('request-ip')
 , ip = require('ip')
-//, qs = require('querystring')
 , request = require('request');
 
 var app = express();
