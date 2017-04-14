@@ -43,7 +43,7 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 app.get('/', function(req, res){
 
   var hostName = os.hostname();
-  if (req.method == 'POST') {
+  /*if (req.method == 'POST') {
         var body = '';
 
         req.on('data', function (data) {
@@ -60,7 +60,7 @@ app.get('/', function(req, res){
             // use post['blah'], etc.
             console.log(post.hostName);
         });
-    }
+    }*/
   /*var options = {
   uri: 'https://www.googleapis.com/urlshortener/v1/url',
   method: 'POST',
