@@ -36,10 +36,10 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //Routes
 
 //index
-app.get('/', function(req, res){
+app.get('/rasp', function(req, res){
 
   var hostName = os.hostname();
-  var postHostName; 
+  var postHostName;
   if (req.method == 'POST') {
     var body = '';
 
