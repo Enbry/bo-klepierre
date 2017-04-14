@@ -38,18 +38,31 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-  var test = os.hostname();
-  console.log(test);
+  var hostName = os.hostname();
+  if (req.method == 'POST') {
+        var body = '';
 
-  var stdout;
-  var test_ip = exec('wget -qO- ifconfig.me/ip').stdout.pipe(process.stdout);
+        req.on('data', function (data) {
+            body += data;
 
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                req.connection.destroy();
+        });
+
+        req.on('end', function () {
+            var post = qs.parse(body);
+            // use post['blah'], etc.
+            console.log(post.hostName);
+        });
+    }
   var clientIp = req.ip;
   //  var testip = ip.address();
   console.log(clientIp);
   res.render('index', {
     title: 'Accueil',
-    rasp: test,
+    rasp: hostName,
     raspIp: clientIp
   });
 });
