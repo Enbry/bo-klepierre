@@ -12,7 +12,9 @@ var express = require('express')
 , os = require('os')
 , get_ip = require('ipware')().get_ip
 , requestIp = require('request-ip')
-, ip = require("ip");
+, ip = require('ip')
+, qs = require('querystring')
+, request = require('request');
 
 var app = express();
 
@@ -23,7 +25,6 @@ app.configure(function(){
   app.set('view options', {layout: false});
   app.use(express.favicon());
   app.use(express.logger('dev'));
-  app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
@@ -41,24 +42,57 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-  var test = os.hostname();
-  console.log(test);
+  var hostName = os.hostname();
+  if (req.method == 'POST') {
+        var body = '';
 
-  var stdout;
-  var test_ip = exec('wget -qO- ifconfig.me/ip').stdout.pipe(process.stdout);
+        req.on('data', function (data) {
+            body += data;
 
-var clientIp = req.ip;
-//  var testip = ip.address();
-  console.log(clientIp);
-    res.render('index', {
-      title: 'Accueil',
-      rasp: test,
-      raspIp: clientIp
-    });
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                req.connection.destroy();
+        });
+
+        req.on('end', function () {
+            var post = qs.parse(body);
+            // use post['blah'], etc.
+            console.log(post.hostName);
+        });
+    }
+  /*var options = {
+  uri: 'https://www.googleapis.com/urlshortener/v1/url',
+  method: 'POST',
+  json: {
+  "shortUrl": "hostName"
+  }
+  };
+  request(options, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+  console.log(body.id) // Print the shortened url.
+  }
+  if (error) {
+  console.log(error) // Print the shortened url.
+  }
+  });
+
+  var url ='http://requestb.in/14nqeir1'
+  request(url, function (error, response, body) {
+  if (!error) {
+  console.log(body);
+  }
+  });
+
+  var clientIp = req.ip;
+  res.render('index', {
+  title: 'Accueil',
+  rasp: hostName,
+  raspIp: clientIp
+  });*/
 });
 
 app.get('/playlist', function(req, res){
-
   playlistProvider.findAll(function(error, emps){
     res.render('playlist_list', {
       title: 'Playlists',
@@ -76,7 +110,10 @@ app.get('/playlist/new', function(req, res) {
 
 //save new playlist
 app.post('/playlist/new', function(req, res){
+  var hostName = os.hostname();
+
   playlistProvider.save({
+
     title: req.param('title'),
     description: req.param('description'),
     date: req.param('date'),
