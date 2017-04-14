@@ -38,21 +38,10 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/rasp', function(req, res){
 
-  var hostName = os.hostname();
-  var postHostName;
+/*  var hostName = os.hostname();
+  var postHostName;*/
 
-  var server = http.createServer ( function(request,response){
 
-  response.writeHead(200,{"Content-Type":"application/json"});
-  if(request.method == "POST")
-      {
-          response.end("received POST request.");
-      }
-  else
-      {
-          response.end("Undefined request .");
-      }
-});
 
   /*if (req.method == 'POST') {
     var body = '';
@@ -81,6 +70,11 @@ app.get('/rasp', function(req, res){
     raspIp: clientIp,
     log: postHostName
   });
+});
+
+app.post('/rasp',function(req,res){
+  console.log(req.body);
+  res.send("received post");
 });
 
 app.get('/playlist', function(req, res){
