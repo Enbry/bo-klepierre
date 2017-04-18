@@ -50,12 +50,10 @@ app.get('/', function(req, res){
 });
 
 app.get('/rasp', function(req, res){
-  //var hostName = req.body.hostName;
-  //var raspIp = req.body.raspIP;
-  console.log(req.body);
-  console.log(req.param);
-  console.log(req.query);
-  //res.render(JSON.stringify(req.body));
+  var hostName = req.param('hostName');
+  var raspIp = req.param('raspIp');
+
+  res.send(hostName + ' ' + raspIp);
 
 });
 
