@@ -41,27 +41,21 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-res.send(hostName + ' ' + raspIp)
-  /*res.render('index', {
-  title: 'Accueil',
-  rasp: hostName,
-  raspIp: raspIp
-  });*/
+res.send('Accueil');
+
 });
 app.post('/rasp', function(req,res){
 
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-  res.redirect('/');
   //  res.send(hostName + ' ' + raspIp);
 });
 
 app.get('/rasp', function(req, res){
-  var hostName = req.param('hostName');
-  var raspIp = req.param('raspIp');
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-
   res.send(hostName + ' ' + raspIp);
 
 });
