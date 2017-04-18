@@ -45,19 +45,17 @@ app.get('/', function(req, res){
 
 });
 app.post('/rasp', function(req,res){
-
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-  res.send(hostName + ' ' + raspIp);
+  res.render(hostName + ' ' + raspIp);
 });
 
 app.get('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-  console.log(typeof hostName);
-  res.send(hostName + ' ' + raspIp);
+  res.render(hostName + ' ' + raspIp);
 });
 
 app.get('/playlist', function(req, res){
