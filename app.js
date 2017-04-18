@@ -51,8 +51,7 @@ app.get('/rasp', function(req, res){
   var raspIp = req.body.raspIP;
   console.log(req.param.hostName);
   console.log(req.query.hostName);
-
-  console.log(raspIp);
+  console.log(req.body.hostName);
   res.send(hostName);
 
 });
@@ -61,6 +60,8 @@ app.post('/rasp', function(req,res){
 
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
+  console.log(req.body.hostName);
+  
   //console.log(hostName);
   //console.log(raspIp);
 
