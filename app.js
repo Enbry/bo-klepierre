@@ -67,7 +67,7 @@ app.post('/rasp', function(req,res){
 
   //console.log(hostName);
   //console.log(raspIp);
-res.render(req.body);
+res.send(req.body);
   //res.send(req.body);
 });
 
