@@ -49,7 +49,7 @@ app.get('/', function(req, res){
   var hostName = os.hostname();
   var raspIp = req.body.raspIP;
   console.log(req.body.hostName);
-  console.log(raspIP);
+  console.log(raspIp);
 
   res.render('index', {
     title: 'Accueil',
