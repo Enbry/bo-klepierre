@@ -57,16 +57,6 @@ app.post('/', function(req,res){
 
 app.get('/', function(req, res){
 
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
-  console.log(req.body.hostName);
-  console.log(raspIp);
-
-  res.render('index', {
-    title: 'Accueil',
-    rasp: hostName,
-    raspIp: raspIp
-  });
 });
 
 app.get('/playlist', function(req, res){
