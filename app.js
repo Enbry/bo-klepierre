@@ -36,28 +36,8 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //Routes
 
 //index
-
-app.post('/', function(req,res){
-  //console.log(req.body.hostName);
-  //console.log(req.body.raspIP);
-
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
-  console.log(req.body.hostName);
-  console.log(raspIp);
-
-  res.render('index', {
-    title: 'Accueil',
-    rasp: hostName,
-    raspIp: raspIp
-  });
-
-  res.send("received post");
-});
-
 app.get('/', function(req, res){
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
+
   res.send("GET request to the homepage");
   /*res.render('index', {
     title: 'Accueil',
@@ -65,6 +45,27 @@ app.get('/', function(req, res){
     raspIp: raspIp
   });*/
 });
+
+app.get('/rasp', function(req, res){
+  var hostName = req.param.hostName;
+  var raspIp = req.param.raspIP;
+  console.log(hostName);
+  console.log(raspIp);
+  res.send("GET request to the homepage");
+
+});
+
+app.post('/rasp', function(req,res){
+
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
+  console.log(hostName);
+  console.log(raspIp);
+
+  res.send("received post");
+});
+
+
 
 app.get('/playlist', function(req, res){
 
