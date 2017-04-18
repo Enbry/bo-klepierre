@@ -47,17 +47,17 @@ app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-  res.send(hostName + ' ' + raspIp);
+  res.send(req.body);
 });
 
 app.get('/rasp', function(req, res){
   //var hostName = req.body.hostName;
   //var raspIp = req.body.raspIP;
-  console.log(hostName + ' ' + raspIp);
-  res.render('index', {
+  console.log(req.body);
+  /*res.render('index', {
     hostName: hostName,
     raspIp: raspIP
-  });
+  });*/
 });
 
 app.get('/playlist', function(req, res){
