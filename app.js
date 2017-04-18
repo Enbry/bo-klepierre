@@ -55,7 +55,7 @@ app.get('/rasp', function(req, res){
   console.log(req.body);
   console.log(req.param);
   console.log(req.query);
-  res.render(JSON.stringify(req.body));
+  //res.render(JSON.stringify(req.body));
 
 });
 
