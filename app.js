@@ -53,8 +53,8 @@ app.post('/rasp', function(req,res){
 });
 
 app.get('/rasp', function(req, res){
-  var hostName = req.param('hostName');
-  var raspIp = req.param('raspIP');
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
   res.send(hostName + ' ' + raspIp);
 });
