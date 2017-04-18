@@ -3,6 +3,7 @@ var express = require('express')
 , user = require('./routes/user')
 , http = require('http')
 , path = require('path')
+, bodyParser = require('body-parser')
 , PlaylistProvider = require('./playlistprovider').PlaylistProvider
 , exec = require('child_process').exec
 , os = require('os')
@@ -21,6 +22,7 @@ app.configure(function(){
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
+  app.use(bodyParser.json());
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
