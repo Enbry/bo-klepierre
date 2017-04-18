@@ -40,10 +40,9 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 
 //index
 app.get('/', function(req, res){
-
   res.send('Accueil');
-
 });
+
 app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
@@ -52,10 +51,13 @@ app.post('/rasp', function(req,res){
 });
 
 app.get('/rasp', function(req, res){
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
+  //var hostName = req.body.hostName;
+  //var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-  //res.render(hostName + ' ' + raspIp);
+  res.render('index', {
+    hostName: hostName,
+    raspIp: raspIP
+  }
 });
 
 app.get('/playlist', function(req, res){
