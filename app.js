@@ -43,7 +43,7 @@ app.get('/', function(req, res){
   res.send('Accueil');
 });
 
-app.post('/rasp', function(req,res){
+app.all('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(req.body);
@@ -51,7 +51,7 @@ app.post('/rasp', function(req,res){
   //res.render(req.body.toString());
 });
 
-app.get('/rasp', function(req, res){
+/*app.get('/rasp', function(req, res){
   //var hostName = req.body.hostName;
   //var raspIp = req.body.raspIP;
 
@@ -59,9 +59,9 @@ app.get('/rasp', function(req, res){
     hostName: hostName,
     raspIp: raspIP
   });*/
-  console.log(req.hostName);
+/*  console.log(req.hostName);
   res.send('coucou');
-});
+});*/
 
 app.get('/playlist', function(req, res){
   playlistProvider.findAll(function(error, emps){
