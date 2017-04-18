@@ -41,12 +41,20 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-  res.send("GET request to the homepage");
+res.send(hostName + ' ' + raspIp)
   /*res.render('index', {
   title: 'Accueil',
   rasp: hostName,
   raspIp: raspIp
   });*/
+});
+app.post('/rasp', function(req,res){
+
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
+  console.log(hostName + ' ' + raspIp);
+  res.redirect('/');
+  //  res.send(hostName + ' ' + raspIp);
 });
 
 app.get('/rasp', function(req, res){
@@ -58,14 +66,7 @@ app.get('/rasp', function(req, res){
 
 });
 
-app.post('/rasp', function(req,res){
 
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
-  console.log(hostName + ' ' + raspIp);
-
-  res.send(hostName + ' ' + raspIp);
-});
 
 
 
