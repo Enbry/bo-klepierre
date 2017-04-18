@@ -46,15 +46,15 @@ app.post('/', function(req,res){
 
 app.get('/', function(req, res){
 
-  //var hostName = os.hostname();
-  //var raspIp = req.body.raspIP;
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
   console.log(req.body.hostName);
-  console.log(req.body.raspIP);
+  console.log(raspIp);
 
   res.render('index', {
     title: 'Accueil',
-    rasp: req.body.hostName,
-    raspIp: req.body.raspIP
+    rasp: hostName,
+    raspIp: raspIp
   });
 });
 
