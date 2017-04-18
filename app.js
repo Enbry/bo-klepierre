@@ -70,6 +70,7 @@ app.post('/rasp', function(req,res){
   //console.log(raspIp);
 
   res.send(req.body);
+  res.redirect('/')
 });
 
 
