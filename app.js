@@ -43,7 +43,7 @@ app.get('/', function(req, res){
   res.send('Accueil');
 });
 
-app.all('/rasp', function(req,res){
+app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   var title = 'Raspberry';
