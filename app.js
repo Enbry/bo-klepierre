@@ -58,11 +58,12 @@ app.post('/', function(req,res){
 app.get('/', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
-  res.render('index', {
+  res.send("GET request to the homepage");
+  /*res.render('index', {
     title: 'Accueil',
     rasp: hostName,
     raspIp: raspIp
-  });
+  });*/
 });
 
 app.get('/playlist', function(req, res){
