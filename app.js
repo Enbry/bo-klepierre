@@ -43,9 +43,9 @@ app.get('/', function(req, res){
 
   res.send("GET request to the homepage");
   /*res.render('index', {
-    title: 'Accueil',
-    rasp: hostName,
-    raspIp: raspIp
+  title: 'Accueil',
+  rasp: hostName,
+  raspIp: raspIp
   });*/
 });
 
@@ -59,14 +59,12 @@ app.get('/rasp', function(req, res){
 
 app.post('/rasp', function(req,res){
 
-  //var hostName = req.body.hostName;
-  //var raspIp = req.body.raspIP;
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
   console.log(req.body);
 
-  //console.log(hostName);
-  //console.log(raspIp);
-res.send(req.body);
-  //res.send(req.body);
+
+  res.send(req.body);
 });
 
 
