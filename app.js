@@ -47,7 +47,7 @@ app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(req.body);
-  res.render(req.body.toString());
+  //res.render(req.body.toString());
 });
 
 app.get('/rasp', function(req, res){
