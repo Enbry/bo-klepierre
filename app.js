@@ -64,7 +64,7 @@ app.post('/rasp', function(req,res){
   console.log(req.body);
 
 
-  res.send(req.body);
+  res.send(hostName + ' ' + raspIp);
 });
 
 
