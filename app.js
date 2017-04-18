@@ -61,11 +61,11 @@ app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(req.body.hostName);
-  
+
   //console.log(hostName);
   //console.log(raspIp);
 
-  res.send(hostName);
+  res.send(req.body);
 });
 
 
