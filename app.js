@@ -50,25 +50,24 @@ app.get('/', function(req, res){
 });
 
 app.get('/rasp', function(req, res){
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
+  //var hostName = req.body.hostName;
+  //var raspIp = req.body.raspIP;
   console.log(req.body);
   console.log(req.param);
   console.log(req.query);
 
-  res.send(hostName);
-
+res.write(JSON.stringify(req.body));
 });
 
 app.post('/rasp', function(req,res){
 
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
-  console.log(req.body.hostName);
+  //var hostName = req.body.hostName;
+  //var raspIp = req.body.raspIP;
+  console.log(req.body);
 
   //console.log(hostName);
   //console.log(raspIp);
-res.write(JSON.stringify(req.body));
+res.senf(req.body);
   //res.send(req.body);
 });
 
