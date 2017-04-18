@@ -46,7 +46,8 @@ app.get('/', function(req, res){
 app.all('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
-  console.log(req.body);
+  console.log(req.body.hostName);
+  console.log(raspIp);
   res.render('index', {
     title: 'Raspberry',
     hostName: hostName,
