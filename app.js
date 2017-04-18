@@ -57,7 +57,7 @@ app.get('/rasp', function(req, res){
   res.render('index', {
     hostName: hostName,
     raspIp: raspIP
-  }
+  });
 });
 
 app.get('/playlist', function(req, res){
