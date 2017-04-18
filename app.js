@@ -38,32 +38,8 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
- var hostName = os.hostname();
+  var hostName = os.hostname();
   var postHostName;
-
-
-
-  /*if (req.method == 'POST') {
-    var body = '';
-
-    req.on('data', function (data) {
-      body += data;
-
-      // Too much POST data, kill the connection!
-      // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-      if (body.length > 1e6)
-      req.connection.destroy();
-    });
-
-    req.on('end', function () {
-      var post = qs.parse(body);
-      // use post['blah'], etc.
-      console.log(post);
-    });
-  }*/
-  var stdout;
-  exec('wget -qO- ifconfig.me/ip').stdout.pipe(process.stdout);
-  console.log(stdout);
 
   res.render('index', {
     title: 'Accueil',
@@ -74,7 +50,9 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function(req,res){
-  console.log(req.body);
+  console.log(req.body.hostName);
+  console.log(req.body.raspIP);
+
   //res.send("received post");
 });
 
