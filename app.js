@@ -41,7 +41,7 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-res.send('Accueil');
+  res.send('Accueil');
 
 });
 app.post('/rasp', function(req,res){
@@ -49,23 +49,17 @@ app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName + ' ' + raspIp);
-  //  res.send(hostName + ' ' + raspIp);
+  res.send(hostName + ' ' + raspIp);
 });
 
 app.get('/rasp', function(req, res){
-  var hostName = req.body.hostName;
-  var raspIp = req.body.raspIP;
+  var hostName = req.param('hostName');
+  var raspIp = req.param('raspIP');
   console.log(hostName + ' ' + raspIp);
   res.send(hostName + ' ' + raspIp);
-
 });
 
-
-
-
-
 app.get('/playlist', function(req, res){
-
   playlistProvider.findAll(function(error, emps){
     res.render('playlist_list', {
       title: 'Playlists',
