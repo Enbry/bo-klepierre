@@ -47,11 +47,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/rasp', function(req, res){
-  var hostName = req.param.hostName;
-  var raspIp = req.param.raspIP;
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
   console.log(hostName);
   console.log(raspIp);
-  res.send("GET request to the homepage");
+  res.send(hostName);
 
 });
 
@@ -59,10 +59,10 @@ app.post('/rasp', function(req,res){
 
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
-  console.log(hostName);
-  console.log(raspIp);
+  //console.log(hostName);
+  //console.log(raspIp);
 
-  res.send("received post");
+  res.send(hostName);
 });
 
 
