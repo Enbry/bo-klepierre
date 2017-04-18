@@ -55,7 +55,7 @@ app.all('/rasp', function(req,res){
     hostName: hostName,
     raspIp: raspIp
   });*/
-  //res.render(req.body.toString());
+  res.send(req.body);
 });
 
 /*app.get('/rasp', function(req, res){
