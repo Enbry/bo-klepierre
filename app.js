@@ -59,6 +59,7 @@ app.get('/rasp', function(req, res){
     hostName: hostName,
     raspIp: raspIP
   });*/
+  res.send('coucou');
 });
 
 app.get('/playlist', function(req, res){
