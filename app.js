@@ -38,14 +38,13 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 app.get('/', function(req, res){
 
-  var hostName = os.hostname();
-  var postHostName;
+  var hostName = req.body.hostName;
+  var raspIp = req.body.raspIP;
 
   res.render('index', {
     title: 'Accueil',
     rasp: hostName,
-    raspIp: stdout,
-    log: postHostName
+    raspIp: raspIp
   });
 });
 
