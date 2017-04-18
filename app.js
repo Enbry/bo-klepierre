@@ -59,6 +59,7 @@ app.get('/rasp', function(req, res){
     hostName: hostName,
     raspIp: raspIP
   });*/
+  console.log(req.body.hostName);
   res.send('coucou');
 });
 
