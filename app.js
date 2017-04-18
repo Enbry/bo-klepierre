@@ -50,12 +50,12 @@ app.all('/rasp', function(req,res){
 
   console.log(req.body.hostName);
   console.log(raspIp);
-  /*res.render('index', {
+  res.render('index', {
     title: title,
     hostName: hostName,
     raspIp: raspIp
-  });*/
-  res.send(req.body);
+  });
+  //res.render(req.body.toString());
 });
 
 /*app.get('/rasp', function(req, res){
