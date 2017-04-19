@@ -39,16 +39,13 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //Routes
 
 //index
-app.get('/', function(req, res){
-  res.send('Accueil');
-});
 
 app.all('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   var title = 'Raspberry';
 
-  console.log(req.body.hostName);
+  console.log(req.body);
   console.log(raspIp);
   res.render('index', {
     title: title,
@@ -57,6 +54,11 @@ app.all('/rasp', function(req,res){
   });
   //res.render(req.body.toString());
 });
+app.get('/', function(req, res){
+  res.send('Accueil');
+});
+
+
 
 /*app.get('/rasp', function(req, res){
   //var hostName = req.body.hostName;
