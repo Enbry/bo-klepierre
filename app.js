@@ -78,8 +78,22 @@ app.get('/rasp', function(req, res){
   cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });
-  console.log(req.body);
-  res.send('Accueil');
+
+  var options = {
+  //hostname: '127.0.0.1',
+  //port: app.get('port'),
+  uri: 'https://bo-klepierre.herokuapp.com/rasp',
+  //path: '/rasp',
+  method: 'GET',
+  json:true
+  }
+  request(options, function(error, response, body){
+  if(error) console.log(error);
+  else console.log(body);
+  });
+
+  //console.log(req.body);
+  //res.send('Accueil');
 });
 
 
