@@ -60,17 +60,10 @@ app.get('/', function(req, res){
   });*/
 });
 
-app.post('/rasp', function(req,res){
+
+app.all('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
-  //var title = 'Raspberry';
-
-  //console.log(req.body);
-  //console.log(raspIp);
-  //res.json(req.body);
-
-});
-app.get('/rasp', function(req, res){
   /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });*/
