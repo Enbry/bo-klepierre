@@ -69,10 +69,6 @@ app.post('/rasp', function(req,res){
   //console.log(raspIp);
   //res.json(req.body);
 
-  res.render('index', {
-  title: 'Raspberry'
-  });
-  //res.render(req.body.toString());
 });
 app.get('/rasp', function(req, res){
   /*cron.schedule('* * * * *', function(){
