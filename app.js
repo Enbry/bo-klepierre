@@ -11,6 +11,7 @@ var express = require('express')
 , qs = require('querystring')
 , requestIp = require('request-ip')
 , request = require('request')
+, cron = require('node-cron')
 , ip = require('ip');
 
 var app = express();
@@ -42,18 +43,21 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 //index
 
 app.get('/rasp', function(req, res){
-  var options = {
-    //hostname: '127.0.0.1',
-    //port: app.get('port'),
-    uri: req.body.hostname
-    //path: '/rasp',
-    method: 'GET',
-    json:true
-}
-request(options, function(error, response, body){
-    if(error) console.log(error);
-    else console.log(body);
-});
+  cron.schedule('* * * * *', function(){
+    console.log('running a task every minute');
+  });
+  /*var options = {
+  //hostname: '127.0.0.1',
+  //port: app.get('port'),
+  uri: req.body.hostname
+  //path: '/rasp',
+  method: 'GET',
+  json:true
+  }
+  request(options, function(error, response, body){
+  if(error) console.log(error);
+  else console.log(body);
+  });*/
 });
 
 app.post('/rasp', function(req,res){
@@ -66,26 +70,30 @@ app.post('/rasp', function(req,res){
   res.json(req.body);
 
   /*res.render('index', {
-    body: req.body.hostName
+  body: req.body.hostName
   });*/
   //res.render(req.body.toString());
 });
 app.get('/', function(req, res){
+  cron.schedule('* * * * *', function(){
+    console.log('running a task every minute');
+  });
+  console.log(req.body);
   res.send('Accueil');
 });
 
 
 
 /*app.get('/rasp', function(req, res){
-  //var hostName = req.body.hostName;
-  //var raspIp = req.body.raspIP;
+//var hostName = req.body.hostName;
+//var raspIp = req.body.raspIP;
 
-  /*res.render('index', {
-    hostName: hostName,
-    raspIp: raspIP
-  });*/
+/*res.render('index', {
+hostName: hostName,
+raspIp: raspIP
+});*/
 /*  console.log(req.hostName);
-  res.send('coucou');
+res.send('coucou');
 });*/
 
 app.get('/playlist', function(req, res){
