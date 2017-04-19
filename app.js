@@ -18,7 +18,7 @@ var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
-//  app.set('views', __dirname + '/views');
+  //  app.set('views', __dirname + '/views');
   //app.set('view engine', 'jade');
   app.set('view options', {layout: false});
   app.use(express.favicon());
@@ -61,15 +61,16 @@ app.get('/', function(req, res){
 });
 
 
-app.all('/rasp', function(req, res){
+app.post('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName);
-  res.send(hostName);
+
+  //res.send(hostName);
   /*cron.schedule('* * * * *', function(){
-    console.log('running a task every minute');
+  console.log('running a task every minute');
   });*/
-//  console.log(req.hostName);
+  //  console.log(req.hostName);
 
   /*var options = {
   //hostname: '127.0.0.1',
@@ -78,11 +79,11 @@ app.all('/rasp', function(req, res){
   //path: '/rasp',
   method: 'GET',
   headers: {
-    'Content-Type': 'application/json'
+  'Content-Type': 'application/json'
   },
   json:{
-    'hostName': req.body.hostName,
-    'raspIp': req.body.raspIp
+  'hostName': req.body.hostName,
+  'raspIp': req.body.raspIp
   }
   }
   request(options, function(error, response, data){
@@ -101,17 +102,17 @@ app.all('/rasp', function(req, res){
 
 
 
-/*app.get('/rasp', function(req, res){
-//var hostName = req.body.hostName;
-//var raspIp = req.body.raspIP;
+app.get('/rasp', function(req, res){
+  //var hostName = req.body.hostName;
+  //var raspIp = req.body.raspIP;
 
-/*res.render('index', {
-hostName: hostName,
-raspIp: raspIP
-});*/
-/*  console.log(req.hostName);
-res.send('coucou');
-});*/
+  /*res.render('index', {
+  hostName: hostName,
+  raspIp: raspIP
+  });*/
+  console.log(req.hostName);
+  res.send('coucou');
+});
 
 app.get('/playlist', function(req, res){
   playlistProvider.findAll(function(error, emps){
