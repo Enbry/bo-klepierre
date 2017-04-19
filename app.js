@@ -40,7 +40,7 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 
 //index
 
-app.post('/rasp', function(req,res){
+app.all('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   var title = 'Raspberry';
@@ -48,9 +48,7 @@ app.post('/rasp', function(req,res){
   console.log(req.body);
   console.log(raspIp);
   res.render('index', {
-    title: title,
-    hostName: hostName,
-    raspIp: raspIp
+    body: req.body
   });
   //res.render(req.body.toString());
 });
