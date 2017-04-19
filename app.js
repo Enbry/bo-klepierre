@@ -10,7 +10,8 @@ var express = require('express')
 , get_ip = require('ipware')().get_ip
 , qs = require('querystring')
 , requestIp = require('request-ip')
-, ip = require("ip");
+, request = require('request')
+, ip = require('ip');
 
 var app = express();
 
