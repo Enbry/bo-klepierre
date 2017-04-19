@@ -40,6 +40,20 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 
 //index
 
+app.get('/rasp', function(req, res){
+  var options = {
+    //hostname: '127.0.0.1',
+    //port: app.get('port'),
+    path: '/rasp',
+    method: 'GET',
+    json:true
+}
+request(options, function(error, response, body){
+    if(error) console.log(error);
+    else console.log(body);
+});
+});
+
 app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
@@ -48,6 +62,7 @@ app.post('/rasp', function(req,res){
   console.log(req.body);
   console.log(raspIp);
   res.json(req.body);
+
   /*res.render('index', {
     body: req.body.hostName
   });*/
