@@ -78,7 +78,7 @@ app.get('/rasp', function(req, res){
   /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });*/
-  console.log(hostName);
+  console.log(req.hostName);
 
   /*var options = {
   //hostname: '127.0.0.1',
