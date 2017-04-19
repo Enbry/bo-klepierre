@@ -65,6 +65,7 @@ app.post('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName);
+  console.log(req.params);
 
   //res.send(hostName);
   /*cron.schedule('* * * * *', function(){
