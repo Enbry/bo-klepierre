@@ -65,8 +65,8 @@ app.post('/rasp', function(req,res){
   var raspIp = req.body.raspIP;
   var title = 'Raspberry';
 
-  console.log(req.body);
-  console.log(raspIp);
+  //console.log(req.body);
+  //console.log(raspIp);
   res.json(req.body);
 
   /*res.render('index', {
@@ -93,9 +93,9 @@ app.get('/rasp', function(req, res){
     'raspIp': req.body.raspIp
   }
   }
-  request(options, function(error, response, body){
+  request(options, function(error, response, data){
   if(error) console.log(error);
-  else console.log(body);
+  else console.log(data);
   });
 
   //console.log(req.body);
