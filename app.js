@@ -85,7 +85,13 @@ app.get('/rasp', function(req, res){
   uri: 'https://bo-klepierre.herokuapp.com/rasp',
   //path: '/rasp',
   method: 'GET',
-  json:true
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  json:{
+    'hostName': req.body.hostName,
+    'raspIp': req.body.raspIp
+  }
   }
   request(options, function(error, response, body){
   if(error) console.log(error);
