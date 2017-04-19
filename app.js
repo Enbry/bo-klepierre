@@ -65,7 +65,7 @@ app.all('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName);
-  res.send(hostName);
+  res.render(hostName);
   /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });*/
@@ -92,11 +92,11 @@ app.all('/rasp', function(req, res){
 
   //console.log(req.body);
   //res.send('Accueil');*/
-  res.render('index', {
+  /*res.render('index', {
   title: 'Raspberry',
   test: 'test',
   hostName: hostName
-  });
+  });*/
 });
 
 
