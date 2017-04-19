@@ -64,6 +64,7 @@ app.get('/', function(req, res){
 app.all('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
+  console.log(hostName);
   /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });*/
