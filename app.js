@@ -42,7 +42,7 @@ var playlistProvider= new PlaylistProvider('localhost', 27017);
 
 //index
 
-app.get('/rasp', function(req, res){
+app.get('/', function(req, res){
   cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });
@@ -74,7 +74,7 @@ app.post('/rasp', function(req,res){
   });*/
   //res.render(req.body.toString());
 });
-app.get('/', function(req, res){
+app.get('/rasp', function(req, res){
   cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });
