@@ -47,9 +47,9 @@ app.all('/rasp', function(req,res){
 
   console.log(req.body);
   console.log(raspIp);
-  res.render('index', {
+  /*res.render('index', {
     body: req.body.hostName
-  });
+  });*/
   //res.render(req.body.toString());
 });
 app.get('/', function(req, res){
