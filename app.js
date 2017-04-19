@@ -63,15 +63,15 @@ app.get('/', function(req, res){
 app.post('/rasp', function(req,res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
-  var title = 'Raspberry';
+  //var title = 'Raspberry';
 
   //console.log(req.body);
   //console.log(raspIp);
   res.json(req.body);
 
-  /*res.render('index', {
-  body: req.body.hostName
-  });*/
+  res.render('index', {
+  title: 'Raspberry'
+  });
   //res.render(req.body.toString());
 });
 app.get('/rasp', function(req, res){
