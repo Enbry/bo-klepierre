@@ -101,6 +101,9 @@ app.get('/rasp', function(req, res){
 
   //console.log(req.body);
   //res.send('Accueil');*/
+  res.render('index', {
+  title: 'Raspberry'
+  });
 });
 
 
