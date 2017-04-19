@@ -18,8 +18,8 @@ var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+//  app.set('views', __dirname + '/views');
+  //app.set('view engine', 'jade');
   app.set('view options', {layout: false});
   app.use(express.favicon());
   app.use(express.logger('dev'));
@@ -65,7 +65,7 @@ app.all('/rasp', function(req, res){
   var hostName = req.body.hostName;
   var raspIp = req.body.raspIP;
   console.log(hostName);
-  res.render(hostName);
+  res.send(hostName);
   /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });*/
