@@ -67,7 +67,7 @@ app.post('/rasp', function(req,res){
 
   //console.log(req.body);
   //console.log(raspIp);
-  res.json(req.body);
+  //res.json(req.body);
 
   res.render('index', {
   title: 'Raspberry'
@@ -78,7 +78,7 @@ app.get('/rasp', function(req, res){
   /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
   });*/
-  console.log(req.hostName);
+//  console.log(req.hostName);
 
   /*var options = {
   //hostname: '127.0.0.1',
