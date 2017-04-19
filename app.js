@@ -46,7 +46,7 @@ app.get('/rasp', function(req, res){
     //hostname: '127.0.0.1',
     //port: app.get('port'),
     uri: req.body.hostname
-    path: '/rasp',
+    //path: '/rasp',
     method: 'GET',
     json:true
 }
