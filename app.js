@@ -75,9 +75,9 @@ app.post('/rasp', function(req,res){
   //res.render(req.body.toString());
 });
 app.get('/rasp', function(req, res){
-  cron.schedule('* * * * *', function(){
+  /*cron.schedule('* * * * *', function(){
     console.log('running a task every minute');
-  });
+  });*/
 
   var options = {
   //hostname: '127.0.0.1',
